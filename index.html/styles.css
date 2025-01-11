@@ -1,0 +1,393 @@
+/* Importar fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;500;600&family=Quicksand:wght@400;600;700&display=swap');
+
+/* Variables globales */
+:root {
+    /* Colores principales */
+    --primary-color: #6200EA;    /* Violeta profundo */
+    --secondary-color: #00E5FF;  /* Cian brillante */
+    --accent-color: #FF3D00;     /* Naranja intenso */
+    --text-color: #212121;       /* Negro suave */
+    --background-color: #FFFFFF; /* Blanco */
+    --header-color: #6200EA;     /* Violeta profundo */
+    --footer-color: #6200EA;     /* Violeta profundo */
+
+    /* Colores para secciones específicas */
+    --neonflex-primary: #7E57C2;  /* Púrpura para sección NeonFlex */
+    --mdf-primary: #1A237E;       /* Azul índigo para sección MDF */
+    --pines-primary: #E74C3C;     /* Rojo coral para sección Pines */
+    --services-primary: #00BFA5;  /* Verde agua para servicios */
+}
+
+/* Estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+/* Header y Navegación */
+header {
+    background-color: var(--header-color);
+    color: white;
+    padding: 1rem 2rem;
+    position: center;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+nav {
+    margin-top: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Main content */
+main {
+    margin-top: 100px; /* Espacio para el header fijo */
+    padding: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Secciones específicas */
+
+/* Inicio */
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+}
+
+/* NeonFlex */
+#neonflex {
+    background: linear-gradient(to right, #1a1a1a, #2d2d2d);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.neon-effect {
+    text-shadow: 0 0 5px var(--secondary-color),
+                 0 0 10px var(--secondary-color),
+                 0 0 15px var(--secondary-color);
+}
+
+/* MDF */
+#mdf {
+    background-color: #ce650e;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+/* Pines */
+#pines {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Servicios */
+#servicios {
+    background: linear-gradient(45deg, var(--services-primary), var(--secondary-color));
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+/* Componentes reutilizables */
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.btn {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* Animaciones y efectos */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Modo oscuro */
+.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.dark-mode .card {
+    background-color: #2d2d2d;
+    color: white;
+}
+
+.dark-mode header {
+    background-color: #000000;
+}
+
+/* Botón de modo oscuro */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    background: #333;
+    color: white;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Botón volver arriba */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.back-to-top.show {
+    opacity: 1;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+}
+
+/* Notificación de cookies */
+.cookie-notice {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.9);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    z-index: 1000;
+}
+
+.accept-cookies {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transition: opacity 0.5s ease;
+}
+
+.preloader-finish {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        display: none;
+    }
+
+    nav.nav-active ul {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    main {
+        padding: 1rem;
+        margin-top: 80px;
+    }
+
+    .hero {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Grids y layouts */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/*Logo */
+.logo {
+    width: 150px; /* Cambia el tamaño según tus necesidades */
+    height: auto; /* Mantén las proporciones */
+    margin-right: 5px; /* Espacio entre el logo y el contenido */
+    border-radius: 10px; 
+    display: inline-block; /* Asegura que el logo esté alineado con el texto */
+    vertical-align: middle; /* Alineación vertical con el título */
+}
+
+/*footer */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    width: 100%;
+}
+
+/* Galeria pages */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Diseña una cuadrícula */
+    gap: 15px; /* Espacio entre las imágenes */
+    justify-items: center; /* Centra las imágenes en cada celda */
+    object-fit: scale-down; 
+}
+
+.gallery-grid img {
+    width: auto; /* Ocupa todo el ancho del contenedor */
+    height: 250px; /* Mantén las proporciones */
+    max-width: 250px; /* Tamaño máximo para evitar imágenes muy grandes */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Galeria inicio */
+.product-image {
+    width: 100%; /* Ocupa todo el ancho de su contenedor */
+    height: 300px; /* Altura fija para todas las imágenes */
+    border-radius: 10px;
+    object-fit: contain; /* Mantiene la proporción de la imagen y cubre el espacio */
+    justify-items: start; /* Centra las imágenes en cada celda */
+}
